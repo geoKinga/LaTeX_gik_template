@@ -1,4 +1,4 @@
-## Templatki dokumentów dla studentów Wydziału Geodezji i Kartografii PW.
+## Templatki dokumentów dla studentów Wydziału Geodezji i Kartografii Politechniki Warszawskiej
 
 + latex_report_templ_gik_pw - templatka do sprawozdań z zajęć;
 + latex_thesis_templ_gik_pw - templatka pracy dyplomowej inzynierskiej i magiesterkiej
