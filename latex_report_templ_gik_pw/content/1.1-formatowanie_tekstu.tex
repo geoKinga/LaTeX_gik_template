@@ -1,0 +1,38 @@
+\subsection{Formatowanie tekstu} 
+
+\begin{itemize}
+\item Automatyczne łamanie liniii stron, akapity oddzielane są od siebie pustymi liniami. Ilość użytych spacji i/lub pustych linii nie ma znaczenia.
+\item "myślniki"
+\begin{itemize}
+    \item - dywiz (hyphen): \verb|-|
+    \item -- łącznik (short dash): \verb|--|
+    \item --- myślnik (long dash): \verb|---|
+\end{itemize}
+\item Rodzaj i grubość czcionki:
+\begin{itemize}
+    \item \verb|\textrm{tekst}| - \textrm{tekst} – pismo proste,
+    \item \verb|\textsl{tekst}| - \textsl{tekst} – pismo proste pochylone
+    \item \verb|\textit{tekst}| - \textit{tekst} – kursywa (italic),
+    \item \verb|\emph{tekst}|   - \emph{tekst}    – wyróżnienie (zalecane),
+    \item \verb|\textbf{tekst}| - \textbf{tekst} – pismo pogrubione (bold),
+    \item \verb|\texttt{tekst}| - \texttt{tekst} – pismo imitujące pismo maszynowe
+    \item \verb|\textsf{tekst}| - \textsf{tekst} – pismo bezszeryfowe
+\end{itemize}
+\item Wielkość czcionki definujemy w opcjach klasy dukumentu, czyli:
+\begin{verbatim}
+\documentclass[10pt,a4paper]{article}
+\end{verbatim}
+\item Nastepnie wielkość czcionki w stosunku do \emph{normalsize} zieniamy poprzez:
+\begin{verbatim}
+\tiny           % 5pt
+\scriptsize     % 7pt
+\footnotesize   % 8pt
+\small          % 9pt
+\normalsize     % 10pt
+\large          % 12pt
+\Large          % 14pt
+\LARGE          % 17pt
+\huge           % 20pt
+\Huge           % 25pt
+\end{verbatim}
+\end{itemize}

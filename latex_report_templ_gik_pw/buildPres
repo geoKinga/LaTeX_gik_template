@@ -1,0 +1,75 @@
+#!/bin/bash
+
+
+# written by Kinga in 2015
+# can be use on unix system for compiling LaTeX documents
+# how to use: # sh buildPres ducument_name.tex 1
+
+
+if [ "$#" -le 0 ]; then
+    echo "sh build filename.tex +parameters"
+else
+    
+    filename="$1"
+    
+    if [ ! -f ${filename} ]; then
+	echo "File not found!"
+    else
+	
+	if [ "$#" -le 1 ]; then
+	    buildDocument=1
+	else
+	    filename="$1"
+	    buildDocument="$2"
+	    buildFigures="$3"
+	    spelling="$4"
+	fi
+	
+	if [ "${spelling}" = "1" ]; then
+	    aspell -l en_GB -c  ${filename}.tex;
+	fi
+	
+	if [ "${buildFigures}" = "1" ]; then
+	    cd figures
+	    for Figures in *.tex; do
+		pdflatex --shell-escape ${Figures}
+	    done
+	    cd ..
+	fi
+	
+	if [ "${buildDocument}" = "1" ]; then
+	    for ii in {1,3}; do
+		pdflatex ${filename%????}.tex;
+		bibtex   ${filename%????}.aux;
+		pdflatex ${filename%????}.tex;
+	    done
+	fi
+	
+
+	find -name "*~"    -delete -o \
+	    -name "*.acn"  -delete -o \
+	    -name "*.acr"  -delete -o \
+	    -name "*.alg"  -delete -o \
+	    -name "*.aux*" -delete -o \
+	    -name "*.bak"  -delete -o \
+	    -name "*.bbl"  -delete -o \
+	    -name "*.blg"  -delete -o \
+	    -name "*-figure*.*" -delete -o \
+	    -name "*.gl*"  -delete -o \
+	    -name "*.ist"  -delete -o \
+	    -name "*.lof"  -delete -o \
+	    -name "*.lot"  -delete -o \
+	    -name "*.log"  -delete -o \
+	    -name "*.nav"  -delete -o \
+	    -name "*.out"  -delete -o \
+	    -name "*.snm"  -delete -o \
+	    -name "*.vrb"  -delete -o \
+	    -name "*.brf"  -delete -o \
+	    -name "*.idx"  -delete -o \
+	    -name "*.syg"  -delete -o \
+	    -name "*.toc"  -delete	
+    
+    fi
+fi
+
+

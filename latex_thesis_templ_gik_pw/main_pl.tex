@@ -1,0 +1,142 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bachelor's & Master's Thesis Template                                %%
+%% Created by Artur M. Brodzki & Piotr Woźniak  (2019-2010)             %%
+%% Faculty of Electronics and Information Technology                    %%
+%% https://www.overleaf.com/latex/templates/wut-thesis/vfvvdqztfqbt     %%
+%% Modified by Kinga Węzka (2021)                                       %%
+%% Faculty Geodesy and Cartography                                      %%
+%% Warsaw University of Technology                                      %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[
+    left=2.5cm,         % Sadly, generic margin parameter
+    right=2.5cm,        % doesnt't work, as it is
+    top=2.5cm,          % superseded by more specific
+    bottom=3cm,         % left...bottom parameters.
+    bindingoffset=6mm,  % Optional binding offset.
+    nohyphenation=false % You may turn off hyphenation, if don't like.
+]{gik/gik-thesis}
+
+\langpol 				% dla języka angielskiego: \langeng
+\graphicspath{{img/}}   % ścieżka względna do katalogu z  obrazkami.
+
+\begin{document}
+
+%--------------------------------------
+% Strona tytułowa
+%--------------------------------------
+\EngineerThesis % dla pracy magisterskiej: \MasterThesis, dla inzynierskiej: \EngineerThesis
+
+\zaklad{Zakład Geodezji i Astronomii Geodezyjnej}
+
+\kierunek{YYYYY}
+\specjalnosc{YYYY} % dotyczy pracy magisterskiej
+\title{
+    Niepotrzebnie długi i skomplikowany tytuł pracy \\
+    trudny do przeczytania, zrozumienia i wymówienia 
+}
+\engtitle{ % Tytuł po angielsku do angielskiego streszczenia
+    Unnecessarily long and complicated thesis' title \\
+    difficult to read, understand and pronounce
+}
+\ThesisNumber{numer pracy według wydziałowej ewidencji prac <liczba>}
+%\ThesisNumber{thesis number in the Faculty thesis register <number>}
+
+\author{\{Kinga Węzka\}}
+\album{XXXXXX}
+
+\promotor{Mikołaj Kopernik}
+\konsultacje{Wincenty Długosz}
+\date{\the\year}
+
+\maketitle
+
+%--------------------------------------
+% Streszczenie po polsku
+%--------------------------------------
+\cleardoublepage % Zaczynamy od nieparzystej strony
+\input{content/abstract_pl}   
+\input{content/abstract_en}  
+
+%--------------------------------------
+% Oświadczenie o autorstwie
+%--------------------------------------
+\cleardoublepage  % Zaczynamy od nieparzystej strony
+\pagestyle{plain}
+\makeauthorship
+
+%--------------------------------------
+% Spis treści
+%--------------------------------------
+\cleardoublepage % Zaczynamy od nieparzystej strony
+\tableofcontents
+
+%--------------------------------------
+% Rozdziały
+%--------------------------------------
+\cleardoublepage % Zaczynamy od nieparzystej strony
+\pagestyle{headings}
+% Wygodnie jest trzymać każdy rozdział w osobnym pliku.
+% Umożliwia to również łatwą migrację do nowej wersji szablonu
+% wystarczy podmienić swoje pliki.
+% Wszystckie pliki tex z rozdziałami znajdują się w folderze "content"
+\input{content/1-wstep}        
+\input{content/1.1-formatowanie_tekstu} 
+\input{content/1.2-cytowania}
+\input{content/1.3-wypunktowania}
+\input{content/2-wzory} 
+\input{content/2.1-rysunki}
+\input{content/2.2-tabele}
+\input{content/2.3-wstawianie_kodu}
+\input{content/4-podsumowanie}
+	   
+
+
+%--------------------------------------------
+% Literatura
+%--------------------------------------------
+\cleardoublepage % Zaczynamy od nieparzystej strony
+\bibliography{bibliografia} % nazwa pliku z bibliografia .bib file (or files)
+
+%--------------------------------------------
+% Spisy (opcjonalne)
+%--------------------------------------------
+\newpage
+\pagestyle{plain}
+
+% Wykaz symboli i skrótów.
+% Pamiętaj, żeby posortować symbole alfabetycznie
+% we własnym zakresie.
+% //AB
+\vspace{0.8cm}
+\acronymlist
+\acronym{GiK}{Wydział Geodezji i Kartografii}
+\acronym{PW}{Politechnika Warszawska}
+\acronym{WEIRD}{ang. \emph{Western, Educated, Industrialized, Rich and Democratic}}
+\acronym{ETC}{End of Thinking Capacity}
+
+\listoffigurestoc     % Spis rysunków.
+\vspace{1cm}          % vertical space
+\listoftablestoc      % Spis tabel.
+\vspace{1cm}          % vertical space\listofappendicestoc  % Spis załączników
+
+
+%--------------------------------------------
+% Załączniki
+%--------------------------------------------
+%\listofappendicestoc  % Spis załączników
+%% załaczniki również znajdyją się w folderze content
+%\input{content/appendix1}
+%\input{content/appendix2}
+
+\addcontentsline{toc}{section}{Załączniki}
+\begin{appendix}
+	\input{content/appendix1}
+	\input{content/appendix2}
+\end{appendix}
+
+% Używając powyższych spisów jako szablonu,
+% możesz tu dodać swój własny wykaz bądź listę,
+% np. spis algorytmów.
+
+\end{document} % Dobranoc.

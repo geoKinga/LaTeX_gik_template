@@ -1,0 +1,39 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Rozdział 3}
+W tym rozdziale też mogłoby być kilka podrozdziałów.
+
+
+\subsection{Wstawianie kodu}
+Ten rozdział będzie o wstawianiu kodu. Najcześciej fragmenty algorytmów w pracach dyplomowych przedstawiamy za pomocą \textbf{pseudokodu} lub \textbf{schematu blokowego}. Jednak czasami pojawia się koniecznośc wstawienia fragmentu algorytmu zimplementowanego w danym języku (np. Python) \citep{Teunissen.Montenbruck2017}. W tym celu w \LaTeX{} można skorzystać z biblioteki \emph{lstlisting} oraz zdefiniowac odpowedni styl kodu w preambule dokumentu (np. kolorowanie słów kluczowych). Więcej informacji na temat modyfikacji ustawiel otoczenia można znaleźć na portalu wikibooks \LaTeX{}\footnote{\url{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}} lub na oficjalnej stronie biblioteki.
+
+
+
+Kod w liniejce można wstawić tak \lstinline|if x == 0:|
+
+\begin{lstlisting}[language=Python,	caption={\emph{Przykładowy kod w Pythonie} }]
+import numpy as np
+import scipy.integrate as integrate
+import matplotlib.pyplot as plt
+
+# Our integral approximation function
+def integral_approximation(f, a, b):
+	return (b-a)*np.mean(f)
+
+# Integrate f(x) = x^2
+def f1(x):
+	return x**2
+
+# Define bounds of integral
+a = 0
+b = 1
+
+# Generate function values
+x_range = np.arange(a,b+0.0001,.0001)
+fx = f1(x_range)
+
+# Approximate integral
+approx = integral_approximation(fx,a,b)
+\end{lstlisting}
+
+
+

@@ -1,0 +1,58 @@
+\subsection{Cytowania}
+Za tworzenie bibliografi w \LaTeX{} odpowiedzialny jest Bib\TeX{} narzędzie służące do formatowania bibliografii według zadanych kryteriów. Bib\TeX{} ułatwia dostosowanie uprzednio zebranych danych bibliograficznych do wymogów różnych wydawców. W preambule dokumentu należy zaimportowac odpowiedni pakiet oraz zdefiniowac zestaw ustawień tak aby generowana bibliografia dokumentu odpowiadałam zdefiniowanym wymaganiom. W pracach dyplomowych wymaga się użycia stylu cytowania o nazwie \emph{Harvard}. Taki styl cytowania został zdefiniowany w niniejszym dokumencie.
+
+\begin{lstlisting}[language=Python,	caption={\emph{Dokument LaTeX z bibliografią} }]
+\documentclass[A4]{gik-thesis}
+
+\RequirePackage[natbibapa]{apacite} % bibliography natbib
+\bibliographystyle{apacite}
+\renewcommand{\BBAA}{i} 
+\renewcommand{\BBAB}{i} 
+\renewcommand{\BOthers}{i in} 
+
+\begin{document}
+Treść dokumentu na podstawie \citep{Nowak.Kowalski2018}
+% wygenerowanie bibliografi na końcu dokumentu
+\bibliography{bibliografia} % nazwa pliku z bibliografia (plik *.bib) 
+\end{document}
+\end{lstlisting}
+
+
+\begin{lstlisting}[language=Python,	caption={\emph{Przykładowy plik \url{bibliografia.bib} } }]
+@Book{Nowak.Kowalski2018,
+	author      = {Piotr Nowak and Jan Kowalski},
+	title       = {Opowiadanie o niczym},
+	publisher   = {PWN},
+	year        = {2018},
+}
+\end{lstlisting}
+
+Jak widać na obrazku numer \ref{fig:obrazekB}
+
+Poniżej znajdują się przykłady użycia cytowania, więcej na ten temat można znależć na oficjalnej stronie biblioteki:\footnote{\url{http://merkel.texture.rocks/Latex/natbib.php}},\footnote{Odniesienia można napisać na stronie korzystając z komendy footnote{}}
+Druga liczba oznacza wcięcie od prawej \citep{Hofmann-Wellenhof.etal2008} lub \citep[ch.VII]{Teunissen.Montenbruck2017}
+
+Jeśli jest wielu Autorów podajemy imię pierwsego oraz "" \citep{Bertiger.etal2009}
+
+\begin{lstlisting}[language=Python,	caption={Przykłady cytowań}]
+\citet{jon90}	       > Jones et al. (1990)
+\citet[chap. 2]{jon90} > Jones et al. (1990, chap. 2)
+\citep{jon90}	       > (Jones et al., 1990)
+\citep[chap. 2]{jon90} > (Jones et al., 1990, chap. 2)
+\end{lstlisting}
+
+
+Cytowania stron internetowych np. \citep{NCEI2020} lub \cite{ASGEUPOS2021}:
+\begin{lstlisting}[language=Python,	caption={\emph{Cytowania stron internetowych n} }]
+@Misc{NCEI2020,
+	author       = {NCEI},
+	howpublished = {\url{https://www.ngdc.noaa.gov}},
+	note         = {Dostęp : 2020-09-30},
+	title        = {World Magnetic Model 2020},
+	year         = {2020},
+	doi          = {10.25921/11v3-da71},
+}
+\end{lstlisting}
+
+Kilka cytowań \citep{Teunissen.Montenbruck2017,Wanninger1993,Hofmann-Wellenhof.etal2008,NCEI2020,ASGEUPOS2021}
+ 

@@ -1,0 +1,120 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Wstęp}
+
+Obrazkiem zamiast tekstu o składzie edytorskim prac dyplomowych ;):
+\cite{Wezka2021}
+
+
+
+\begin{figure}[!ht]
+	\centering \includegraphics[width=0.55\textwidth]{formatowanie_pracy_dyplomowej.jpg}
+	\caption{Title}\label{fig:1}
+\end{figure}
+
+\subsection{Podrozdział}
+dodanie treści
+\subsubsection{Podpodrozdział}
+W plikach OneDrive przedmiotu  (\url{informatyka4gik/IT_GIK_LaTeX}) znajduje się templatka pracy dyplomowej (\url{WUT-GIK_Thesis.zip}) opracowana w języku LaTeX. 
+Wzór przygotowany został zgodnie z wytycznymi pisania prac dyplomowch w Politechnice Warszawskiej.
+Do uruchomienia i edycji dokumentu potrzebna jest dystrybucja systemu LaTeX (kompilator języka) oraz wybrany edytor IDE (np. TeXStudio): 
+\begin{itemize}
+    \item MIK\TeX{} dystrybucja systemu LaTeX: \url{https://miktex.org/download}
+    \item \TeX Studio edytor IDE: \url{https://www.texstudio.org}
+\end{itemize}
+
+\begin{itemize}
+    \item \TeX{} -- jest systemem składu dokumentów i książek, powstałym pierwotnie na potrzeby prac naukowych z nauk ścisłych. Program powstał w Stanach Zjednoczonych na Uniwersytecie Stanforda. Jego twórcą jest \textbf{Donald E. Knuth}, amerykański matematyk i informatyk.
+    Pierwsza wersja pojawiła się publicznie już w 1978 roku, jendak dopiero w 1989 r. system ten, nazwany \TeX, został uznany za ukończony.
+    Kolejne wersje numerowane sa w oparciu o rozwinięcie dzięsiętne liczby $\pi$. W grudniu 2014 roku \TeX doczekał się numeru 3.14159265.
+    \item \LaTeX{} -- jest zestawem skryptów i makt systemy \TeX{}, przez co jest bardziej przyjazny dla użytkownika. Opracowany przez \textbf{Leslie Lamport}. Obecna wersja \LaTeX{} to \LaTeX{} 2$\epsilon$
+\end{itemize}
+
+
+System składu oparty na programie \LaTeX{}, przygotowany na określoną platformę systemową, nazywamy dystrybucją. Najbardziej popularne dystrybucje \LaTeX{} to:
+\begin{itemize}
+    \item MIK\TeX: \url{www.miktex.org/}, dystrybucja systemu {\TeX} dla systemów Windows, Linux i macOS -- polecany dla Windows \\
+    \item \TeX Live: \url{www.tug.org/texlive/}, dystrybucja systemu {\TeX} dla systemów Windows, Linux i macOS -- polecany ndla linux\\
+\end{itemize}
+
+
+\textbf{Wybrane kompilatory \LaTeX{}:}, na podstawie \citep{Borkowski.Przybylski2015}
+\begin{itemize}
+    \item \TeX -- podstawowy silnik umożliwiający kompilowanie plików źródłowych \TeX. Generuje pliki w formacie DVI, który ustąpił już miejsca innym, popularniejszym formatom (np. pdf). Ten i inne powody sprawiły, że jest obecnie używany bardzo rzadko.
+    \item e-\TeX -- rozszerzenie \TeX o nowe polecenia ułatwiające pisanie makr. Zastosowane w nim ulepszenia zostały zaimplementowane w innych, nowszych silnikach
+    \item pdf\TeX -- oparty został na silniku e-\TeX, ale rozszerza go o możliwości związane z generowaniem plików PDF. Tym samym pdfTeX może generować zarówno pliki DVI, jak i PDF. Jest to obecnie najpopularniejszy z używanych silników.
+    \item Xe\TeX -- został oparty na kompilatorze e-\TeX, ale wspiera natywnie kodowanie UTF-8 oraz umożliwia dostęp do fontów (krojów pisma) zainstalowanych w systemie operacyjnym, również takich jak OpenType oraz AAT. 
+    \item Lua\TeX -- nazywany początkowo drugą wersją pdf\TeX, wspiera natywnie kodowanie UTF-8, ale też umożliwia wykorzystywanie w pracy języka programowania o nazwie Lua, dzięki któremu można (między innymi) uzyskać dostęp do fontów systemowych. Opiera się na silniku pdfTeX.
+\end{itemize}
+
+
+\newpage
+\subsection{Struktura plików dla templatki pracy dyplomowej WUT-GIK-Thesis}
+
+\begin{verbatim}
+└── <WUT-GIK-Thesis>
+    ├── <content>
+    │   ├── 1-wstep.tex
+    │   ├── 1.1-formatowanie_tekstu.tex
+    │   ├── 1.2-cytowania.tex
+    │   ├── 1.3-wypunktowania.tex
+    │   ├── 2-wzory.tex
+    │   ├── 2.1-rysunki.tex
+    │   ├── 2.1-tabele.tex
+    │   ├── 2.3-wstawianie_kodu.tex
+    │   ├── 4-podsumowanie.tex
+    │   ├── appendix1.tex
+    │   └── appendix2.tex
+    ├── <gik>
+    │   ├── gik-thesis.cls
+    │   ├── header-eng.png
+    │   ├── header.png
+    │   ├── oswiadczenie_autora_pracy.pdf
+    │   ├── thesis_author_declaration-1.pdf
+    │   ├── thesis_author_declaration-1.pdf
+    │   ├── title-inz-eng.png
+    │   ├── title-inz.png
+    │   ├── gik-thesis.cls
+    │   ├── title-mgr-eng.png
+    │   └── title-mgr.png
+    ├── <img>
+    │   ├── machine_learning.jpg
+    │   ├── od_polinistow.png
+    │   ├── poziom_istotnosci.jpg
+    │   └── itd.jpg
+    ├── bibliografia.bib 
+    ├── buildPres
+    ├── main.tex     (plik z polskimi opisami)
+    ├── main.pdf     (skompilowany main_pl.tex)
+    ├── main_en.tex  (main file with english comments)
+	├── main_en.pdf  (compiled main_en.tex)
+    └── wprowadzenie_latex_prezentacja.pdf 
+\end{verbatim}
+
+\newpage
+\subsection{Podstawowa struktura dokumentu}
+ Podstawowa struktora dokumentu składa się z 3 etapów:
+ \begin{enumerate}
+    \item KLASA DOKUMENTU -- zdefiniowanie klasy dokumentu (np.books, article, report, letter lub klasa własna) oraz podstawowych opcji.
+    \item PREAMBUŁA -- ustawień ogólne całego dokumentu (np. pakiety, makra etc.)
+    \item TREŚĆ DOKUMENTU -- cała treśc dokumentu (rozdziały, sekcje, wzory etc.)
+ \end{enumerate}
+
+\begin{lstlisting}[language=tex,caption={\emph{Podstawowa struktura dokumentu TeX} }]
+% --- 1. KLASA DOKUMENTU
+\documentclass[options]{class}
+
+% --- 2. PREAMBUŁA
+\usepackage{polski}         % jez. polski, znaki diakrytyczne
+\usepackage[utf8]{inputenc} % system kodowania tekstu
+
+% --- 3. TREŚĆ DOKUMENTU
+\begin{document}
+	
+Tutaj znajduje się cała treść dokumentu, 
+rozdziały, podrozdziały etc. tak jak zostało opisane w 
+
+\end{document}
+\end{lstlisting}
+
+
+Tutaj będzie cytowanie \citep{Wanninger1993}

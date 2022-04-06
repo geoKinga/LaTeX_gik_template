@@ -1,0 +1,169 @@
+% COMMON PACKAGES
+
+% ---------------------------------------------------------------------------
+% --- Mateatyka
+% ---------------------------------------------------------------------------
+\usepackage{amsmath,bm,amsfonts,amssymb}    % wzory, równania, symbole matematyczne
+\usepackage{wasysym}                        % inne symbole i znaki matematuczne (np. promil)
+\RequirePackage{siunitx}    				% SI unit HTU \si{}
+
+% ---------------------------------------------------------------------------
+% --- Jezyki
+% ---------------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}     % okresla system kodowania tekstu
+\usepackage[polish]{babel}
+
+% ---------------------------------------------------------------------------
+% --- Marginesy
+% ---------------------------------------------------------------------------
+\usepackage[top=2.5cm, bottom=2.5cm, left=2.5cm, right=2.5cm]{geometry} % ustawienia marginesów
+\RequirePackage{kantlipsum} % English kantian-style lipsum (wypełniacze tekstu)
+\RequirePackage{lipsum}     % Lorem ipsum (wypełniacze tekstu)
+
+% ---------------------------------------------------------------------------
+% --- Kolory i makra
+% ---------------------------------------------------------------------------
+\usepackage{xcolor}                         % definiowanie kolorów
+\newcommand{\myRed}[1]{\textcolor{red}{#1}} % wykorzystanie makro \myRed{tekst}
+\definecolor{GIKorange}{HTML}{C06000}       % definiowanie własnego koloru
+\newcommand{\myOrange}[1]{\textcolor{GIKorange}{#1}} % wykorzystanie makro \myOrange{tekst}
+
+\definecolor{pw_sloneczny}{RGB}{254, 213, 66}
+\definecolor{pw_morelowy}{RGB}{234, 124, 90}
+\definecolor{pw_mietowy}{RGB}{106, 186, 156}
+\definecolor{pw_sliwkowy}{RGB}{150, 95, 119}
+\definecolor{pw_szafirowy}{RGB}{120, 150, 207}
+\definecolor{pw_wrzosowy}{RGB}{180, 160, 170}
+\definecolor{pw_grafitowy}{RGB}{60, 60, 76}
+\definecolor{pw_mokka}{RGB}{100, 90, 90}
+
+% ------------------------------------------------------------------------------------------------------------
+% --- Wstawianie rysunków
+% ------------------------------------------------------------------------------------------------------------
+\usepackage{graphicx}       % wstawianie grafiki
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg}
+
+\usepackage{float}          % to fix table/figure location \begin{figure}[ht]
+\usepackage{subfloat}       % subfigure options
+\usepackage{caption}            
+\usepackage{subcaption}
+
+
+\usepackage{array}
+\usepackage{multicol}       % \multicolumn{num_cols}{alignment}{contents}
+\usepackage{multirow}       % \multirow{''num_rows''}{''width''}{''contents''} {* for the width means the content's natural width}
+\usepackage{longtable}  % Multi-page tables
+\usepackage{booktabs}       % tabele (toprule/midrule/bottomrule)
+\usepackage{tabularx}   % to wrap words (here use in enviroment condition)
+%--------------------------------
+% CONDITIONS: A new enviroments  to explain parameters in equations
+%--------------------------------
+\newenvironment{conditions*}
+{\par\vspace{\abovedisplayskip}\noindent
+	\tabularx{\columnwidth}{>{$}l<{$} @{${}: {}$} >{\raggedright\arraybackslash}X}}
+{\endtabularx\par\vspace{\belowdisplayskip}}
+
+% ------------------------------------------------------------------------------------------------------------
+% --- Wstawianie hyperlinków i ulr
+% ------------------------------------------------------------------------------------------------------------
+\usepackage[obeyspaces,spaces]{url}     % wstawianie ścieżek i stron www np.:  \path{/home/kinga/doc/file}  or \url{www.....}
+\usepackage{hyperref}                   % wstawianie odniesień (hyperlinks)
+% ----- HYPEREF SETUP 
+\hypersetup{hidelinks,
+	bookmarks=true,
+	bookmarksopen=true,
+	colorlinks=true,            % hyperlinks will be coloured
+	linkcolor=pw_mietowy,            % hyperlink text will be green
+	linkbordercolor=black,      % hyperlink border will be red
+	citebordercolor=black,      % color of links to bibliography
+	citecolor=black,
+	filebordercolor=black,      % color of file links
+	urlbordercolor=black,       % color of external links
+	filecolor=black,
+	menucolor=black,
+	urlcolor=black,
+	backref= page,              % page, section(s)
+	pagebackref = true,         % to show number of page with citations backref=none
+	plainpages=true,            % false
+	pdfpagelabels,
+	hypertexnames=true,         % false
+	linktocpage}
+
+
+% ----- modyfikacja pakietu hyperref aby jedynie podkreślał link
+%\makeatletter
+%\Hy@AtBeginDocument{%
+%\def\@pdfborder{0 0 1}% Overrides border definition set with colorlinks=true
+%\def\@pdfborderstyle{/S/U/W 1}% Overrides border style set with colorlinks=true
+%                              % Hyperlink border style will be underline of width 1pt
+%}
+%\makeatother
+
+%--------------------------------------
+% Bibiography specification ver PL
+%--------------------------------------
+\RequirePackage[natbibapa]{apacite}	    % bibliography natbib - natbibapa loads the natbib package for the citation commands
+\bibliographystyle{apacite}
+%\nocite{*} % uzyj aby uwzględnić wszystkie odniesienia w bazie danych .bib (bez tego jedynie cytowane pozycje)
+\renewcommand{\BBAA}{i}  % between authors in parenthetical cites and ref. list
+\renewcommand{\BBAB}{i}  % between authors in in-text citation
+\renewcommand{\BAnd}{i}  % for ``Ed. \& Trans.'' in ref. list
+\renewcommand{\BOthers}{i in}
+\renewcommand{\doiprefix}{DOI:}
+\urlstyle{APACrm}
+
+
+
+% ------------------------------------------------------------------------------------------------------------
+% --- Wstawianie fragmentów kodu
+% ------------------------------------------------------------------------------------------------------------
+%--------------------------------------
+% Code  listings and verbatim ()
+%--------------------------------------
+\usepackage{courier}               % to keep bold for \ttfamily
+\usepackage{verbatim}              % environment which looks for the exact string 
+\usepackage{pmboxdraw}             % alows to use special unicode character U + 20000
+\RequirePackage{listings}              % Code listings
+\RequirePackage{ucs}                   % tosupportencodingutf8x.
+\renewcommand{\lstlistingname}{Kod}    % put the name of caption 
+% general option of listing
+\lstset{aboveskip       = 1.mm,
+	belowskip       = 1.mm,
+	frame           = single,
+	numbers         = left,
+	firstnumber     = 1,
+	xleftmargin     = 2em,
+	numberstyle     = {\footnotesize},
+	basicstyle      ={\footnotesize\ttfamily}, % \ttfamily
+	breaklines      = true,
+	backgroundcolor = \color{pw_grafitowy!1!white},
+	commentstyle    = \color{pw_grafitowy!85!white}\textit,
+	stringstyle     = \color{pw_grafitowy},
+	keywordstyle    = \bfseries,
+	otherkeywords   = {def, return, assert, with, try, exept, Lambda, Map, Fiter, yield, nonlocal, bytes, Ellipsis, NotImplemented, None, setdefault, read, readline, readlines, write, writeline, close, self, SyntaxError, ZeroDivisionError, SyntaxError, IndentationError, IndexError, AssertionError, KeyError, TypeError, NameError, AttributeError, ValueError, RuntimeError,False, True},                
+	breaklines      = true,
+	postbreak=\mbox{\textcolor{red}{\rotatebox[origin=c]{180}{$\Lsh$}}\space}, % break line for long text
+	inputencoding   = utf8x, % incorporate polish characters
+	extendedchars   = \true,
+	literate={ą}{{\k{a}}}1
+	{Ą}{{\k{A}}}1
+	{ę}{{\k{e}}}1
+	{Ę}{{\k{E}}}1
+	{ó}{{\'o}}1
+	{Ó}{{\'O}}1
+	{ś}{{\'s}}1
+	{Ś}{{\'S}}1
+	{ł}{{\l{}}}1
+	{Ł}{{\L{}}}1
+	{ż}{{\.z}}1
+	{Ż}{{\.Z}}1
+	{ź}{{\'z}}1
+	{Ź}{{\'Z}}1
+	{ć}{{\'c}}1
+	{Ć}{{\'C}}1
+	{ń}{{\'n}}1
+	{Ń}{{\'N}}1
+}
+
+

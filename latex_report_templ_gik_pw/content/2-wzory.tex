@@ -1,0 +1,139 @@
+\newpage % Rozdziały zaczynamy od nowej strony.
+\section{Rodział 2}
+
+Citation \citep{Wanninger1993}
+
+\citet{Bertiger.etal2009}
+
+\subsection{Mathematical expression inline}
+
+
+La\TeX allows two writing modes for mathematical expressions: the inline math mode and display math mode:
+\begin{itemize}
+	\item \emph{inline} math mode is used to write formulas that are part of a paragraph \\
+	
+	In physics, the mass-energy equivalence is stated by the equation $E=mc^2$, discovered in 1905 by Albert Einstein.
+	
+	
+	\item \emph{display} math mode is used to write expressions that are not part of a paragraph, and are therefore put on separate lines.: 
+	
+	In physics, the mass-energy equivalence is stated by the equation
+	\begin{equation}
+		E=mc^2,
+	\end{equation}
+	discovered in 1905 by Albert Einstein.
+\end{itemize}
+
+\url{https://en.wikibooks.org/wiki/LaTeX/Mathematics}
+
+
+\subsection{Wzory}
+Zestaw syymboli matematycznych znajduje się w plikach, \url{LaTeX_symbols_short.pdf}
+oraz \url{LaTeX_symbols_full.pdf}, dostępnych w folderze \url{LaTeX/latex_bibliography} na dysku \href{https://wutwaw-my.sharepoint.com/:f:/g/personal/kinga_wezka_pw_edu_pl/EjJEPFmm2bFKvw8gDpzh20QBpIyHB2EN0uaUE3e4bqPH9w?e=OBLJ3e}{OneDrive}.
+Dodatkowe informacje na temat wyrażeń matematycznych w La\TeX{}:
+\url{http://www.latex-kurs.x25.pl/paper/wyrazenia_matematyczne}
+
+
+
+
+Einstein rozwinął \emph{szczególną teorią względności} (STW), gdzie poprawnie przewidział równoważność masy i energii, fakt ten został wyrażony przez słynny wzór: 
+\begin{equation}\label{eq:Einstein}
+    E  = mc^2 + \frac{1}{2}  \frac{10}{100} \sigma \alpha 
+\end{equation}
+gdzie:
+\begin{conditions*}
+E & energia [\si{kg.m^2.s^{-2}}] czyli dżul [\si{\joule} ], \\
+m & masa w jednostkach \si{\kilogram},    \\
+c^2 & prędkość światła w próżni \si{\metre\per\second}, \\
+x & którego nie ma we wzorze więc nie powinno byc wyjaśniene, tutaj służy tylko po to, aby pokazać, że bardzo długi opis zostanie odpowienio wyrównany.
+\end{conditions*}
+
+Według wzoru \ref{eq:Einstein}
+
+\begin{table}\caption{tytuł tabeli}\label{tab:1}
+	\centering
+\begin{tabular}{c c c}
+		\midrule
+		Here & there & where \\ \midrule
+		1    & 2     & 3 \\
+		4 	 & 5     & 6  \\
+		3	 & 4     & 6 \\\midrule
+\end{tabular}
+\end{table}
+
+
+
+Kilka słów o jednostkach, najlepiej użyć do tego biblioteki \citep{Bertiger.etal2009} siunit\footnote{\url{http://mirrors.ibiblio.org/CTAN/macros/latex/contrib/siunitx/siunitx.pdf}}. Wtedy zapisując komendy:
+\begin{lstlisting}[language=tex,caption={\emph{Wybrane komendy biblioteki siunit}}]
+\si{kg.m.s^{-1}} \\
+\si{\kilogram\metre\per\second} \\
+\si[per-mode=symbol]
+{\kilogram\metre\per\second} \\
+\si[per-mode=symbol]
+{\kilogram\metre\per\ampere\per\second}
+\end{lstlisting}
+otrzymamy następujące wyniki: 
+\si{kg.m.s^{-1}} \\
+\si{\kilogram\metre\per\second} \\
+\si[per-mode=symbol]
+{\kilogram\metre\per\second} \\
+\si[per-mode=symbol]
+{\kilogram\metre\per\ampere\per\second}
+
+
+
+\subsection{Macierze i wzory wieloninijkowe}
+
+\begin{equation}\label{eq:matrix1}
+	\begin{bmatrix}
+		\cos{\theta}    & \sin{\theta}   & 0 \\
+		-\sin{\theta}   & \cos{\theta}   & 0 \\
+		0              &  0             & 1 \\
+	\end{bmatrix}
+\end{equation}
+
+
+\begin{align}\label{eq:wzor_macierz}
+\begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 2 & 0 \\
+    0 & 0 & 3
+\end{bmatrix} \cdot
+\begin{bmatrix}
+    4 \\ 5 \\ 6
+\end{bmatrix} =
+\begin{bmatrix}
+    4 \\ 10 \\ 18
+\end{bmatrix}
+\end{align}
+
+\subsection{Podział długich równań}
+Pamietajmy aby bardzo długie wzory dzielić
+
+\begin{equation}
+\begin{split}
+F 	& = \{F_{x} \in  F_{c} 	: (|S| > |C|) \\
+	&\quad \cap (\text{minPixels}  < |S| < \text{maxPixels}) \\
+	&\quad \cap (|S_{\text{conected}}| > |S| - \epsilon) \}
+\end{split}
+\end{equation}
+	
+\begin{equation}
+    \begin{split}
+        x   & = \sigma + \frac{1^2}{2} N \sin{B} \cos{B} \\
+        & + \frac{1^2}{12} \cos^2{B} \cdot \left( 5 - t^2 + 9 \eta^2 + 4 \eta^2 \right)  \\
+        & +\frac{1^4}{360} \cos^4{B} \cdot \left( 61 \eta^2 t^2 \right) + \ldots 
+    \end{split}
+\end{equation}
+
+\subsection{Równania i podrównania}
+\begin{subequations}\label{eq:abc}
+    \begin{align}
+        X_k   &= X'_k \cos \Omega_k -  Y'_k \cos i_k \sin \Omega_k   \label{eq:a} \\
+        Y_k   &= X'_k \sin \Omega_k -  Y'_k  \cos i_k \cos \Omega_k  \label{eq:b} \\
+        Z_k   &= Y'_k  \sin i                                        \label{eq:c}
+    \end{align}
+\end{subequations}
+Odniesienia do całego równania \eqref{eq:abc}, oraz do kolejnych równań \eqref{eq:a}, \eqref{eq:b}, \eqref{eq:c}
+
+

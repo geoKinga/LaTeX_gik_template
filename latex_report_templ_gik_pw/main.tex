@@ -1,0 +1,103 @@
+\documentclass[10pt,a4paper]{article}
+
+% ------------------------- PREAMBUŁA -------------------
+\input{settings/packages}   % ścieżka względna do katalogu z ustawieniami
+\graphicspath{{images/}}    % stała ścieżka względna do katalogu z  obrazkami.
+
+
+
+% METADATA
+% DOCUMENT METADATA
+\newcommand{\logoGIK}{settings/WGiK-znak.png}
+\newcommand{\authorName}{Imię Nazwisko  \\ grupa XX, Numer Indeksu: xxxxxx}
+
+\newcommand{\titeReport}{Tytuł Ćwiczenia} % <<< here insert short title in the food
+\newcommand{\titleLecture}{Informatyka Geodezyjna \\ sem. III, ćwiczenia, rok akad. 2018-2019} % <<< insert title of presentation
+\newcommand{\kind}{report}
+\newcommand{\mymail}{\href{mailto:name@pw.edu.pl}{name@pw.edu.pl}}
+\newcommand{\supervisor}{....}
+\newcommand{\gikweb}{\href{www.gik.pw.edu.pl}{www.gik.pw.edu.pl}}
+\newcommand{\institut}{Zakład Geodezji Wyższej i Astronomii}
+\newcommand{\faculty}{Wydział Geodezji i Kartografii}
+\newcommand{\university}{Politechnika Warszawska}
+\newcommand{\city}{Warszawa}
+\newcommand{\thisyear}{2022}
+%\date{}
+% PDF METADATA
+\pdfinfo
+{
+  /Title       (GIK PW)
+  /Creator     (TeX)
+  /Author      (Imię Nazwisko)
+}
+
+
+% ------------------------- POCZATEK DOKUMENTU -------------------
+\begin{document}
+% ----------------------------------------------------------------
+% ----------------------------  Title page
+% ----------------------------------------------------------------
+\begin{center} 
+\rule{\textwidth}{.5pt} \\
+\vspace{1.0cm}
+    \includegraphics[width=.4\paperwidth]{\logoGIK}
+\vspace{0.5cm} \\
+	\Large \textsc{\titeReport}
+\vspace{0.5cm} \\  
+	\large \textsc{\titleLecture}
+\vspace{0.5cm}\\
+	\textsc{\authorName}  \\
+	\mymail \\
+	\textsc{\faculty}, \textsc{\university}  \\ 
+	 \city, \today
+\end{center} 
+\rule{\textwidth}{1.5pt}
+
+
+
+% ---------------------------------------------------------------
+% ----------------------------  Table of content
+% ----------------------------------------------------------------
+\tableofcontents 								% wyświetla spis treści
+%\addcontentsline{to}{chapter}{Spis treści} 	% dodaje pozycję do spisu treści
+% \listoffigures  								% wyświetla spis rysunków
+%\addcontentsline{toc}{chapter}{Lista rysunków} % dodaje pozycję do spisu treści
+% \listoftables 									% wyświetla spis rysunków
+%\addcontentsline{toc}{chapter}{lista tabel}	% dodaje pozycję do spisu treści
+\newpage
+%
+
+
+% ----------------------------------------------------------------
+% ----------------------------  Sekcje i podsekcje  
+% ----------------------------------------------------------------
+
+\section{Wprowadzenie do \LaTeX -- pomoce w internecie}
+Pomoce z \LaTeX dostepne w internecie:
+\begin{itemize}
+\item wikibooks w wersji polskiej: \url{https://pl.wikibooks.org/wiki/LaTeX}
+\item wikibooks w wersji angielskiej: \url{https://en.wikibooks.org/wiki/LaTeX}
+\end{itemize}
+Dodatkowe pomoce znajdują się na OneDrive w folderze Latex:
+
+
+
+\input{content/1-wstep.tex}        
+\input{content/1.1-formatowanie_tekstu} 
+\input{content/1.2-cytowania}
+\input{content/1.3-wypunktowania}
+\input{content/2-wzory} 
+\input{content/2.1-rysunki}
+\input{content/2.2-tabele}
+\input{content/2.3-wstawianie_kodu}
+\input{content/4-podsumowanie}
+
+
+
+
+
+% ----------------------------------------------------------------
+% ----------------------------  Bibliography  
+% ----------------------------------------------------------------
+\bibliography{bibliografia}
+\end{document}
