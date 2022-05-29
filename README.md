@@ -2,8 +2,8 @@
 
 + **latex_report_templ_gik_pw** - templatka do sprawozdań z zajęć.
 
-Struktura folderów:
-`
+**Struktura folderów:**
+```
 └── <WUT-GIK-Thesis>
     ├── <content>
     │   ├── 1-wstep.tex
@@ -41,13 +41,13 @@ Struktura folderów:
     ├── main_en.tex  (main file with english comments)
 	├── main_en.pdf  (compiled main_en.tex)
     └── wprowadzenie_latex_prezentacja.pdf 
-`
+```
 
 
 + **latex_thesis_templ_gik_pw** - templatka pracy dyplomowej inzynierskiej i magiesterkiej
 
 **Struktura folderów:**
-`
+```
 └── <WUT-GIK-Thesis>
     ├── <content>
     │   ├── 1-wstep.tex
@@ -85,4 +85,4 @@ Struktura folderów:
     ├── main_en.tex  (main file with english comments)
 	├── main_en.pdf  (compiled main_en.tex)
     └── wprowadzenie_latex_prezentacja.pdf 
-    `
+```
